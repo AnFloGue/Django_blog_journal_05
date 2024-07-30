@@ -1,0 +1,41 @@
+
+{% extends 'journal/navbar.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+    {% for message in messages %}
+
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+            <p id="message-timer" class="alert alert-success float-center text-center message-text"> <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{message}} </p>
+
+        {% endif %}
+
+    {% endfor %}
+
+
+
+    <br>
+
+    <div class="container bg-white shadow-md p-5 form-layout">
+
+        <h2> {{user}} </h2>
+        
+        <p> Welcome, {{user}}!  </p>
+
+        <br>
+        
+        <img style="width:120px; height:100px;" src="{{profilePic.profile_pic.url}}">
+
+    </div>
+
+
+    <script src="{% static 'js/app.js' %}"></script>
+
+{% endblock %}
+
+
